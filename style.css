@@ -1,0 +1,54 @@
+.merriweather-regular {
+    font-family: "Merriweather", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body{
+    font-family: "Merriweather", serif;
+    font-weight: 400;
+    font-style: normal;
+    
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: url("https://images.unsplash.com/photo-1534088568595-a066f410bcda?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
+    display: flex;
+    justify-content: center; /*horizontal*/
+    align-items: center;/*vertical*/
+}
+
+.container{
+    background-color: rgba(245, 245, 245, 0.495);
+    text-align: center;
+    max-width: 400px;
+    padding: 50px;
+    border-radius: 30px;
+}
+.city-input{
+    border-radius: 50px 0 0 50px;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+}
+.search-btn{
+    border-radius: 0 50px 50px 0;
+    padding: 10px;
+    font-size: 1rem;
+    color: white;
+    background-image: linear-gradient(90deg,#002b4e,#051827);
+    border: none;
+}
+.material-icons{
+    font-size: 5px;
+}
+
+.search-btn:hover{
+    background-image: none; /*back-img can override back-color*/
+    background-color:#020a10 ;
+}
+
+/*By Default: Not Displayed*/
+#weather-div{
+    display:none;
+}
