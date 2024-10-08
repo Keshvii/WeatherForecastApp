@@ -4,13 +4,23 @@ const search_btn = document.getElementById("search-btn");
 const search_input = document.getElementById("search-input");
 
 function displayWeather() {
-  const city = search_input.value;
+  const city = search_input.value.trim();
+  if (!city) {
+    alert("Please enter a city name."); // Input validation
+    return;
+  }
   console.log(city);
   weather_container.style.display = "block";
   document.getElementById("weather").style.display = "none";
   const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}&units=metric`; /* String literal ` (js functionality) can pass variables*/
   fetch(api)
-    .then((response) => response.json()) /*request.get response*/
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("City not found"); // Handling API errors
+      }
+      return response.json();
+    })
+    /*request.get response*/
     .then((data) => {
       console.log(data);
 
@@ -31,6 +41,9 @@ function displayWeather() {
       document.getElementById(
         "wind-id"
       ).textContent = `Wind Speed: ${windSpeed} m/s`;
+    })
+    .catch((error) => {
+      alert(error.message); // Display error message to the user
     });
 }
 
